@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "corrective-rag-with-langgraph-ipynb"
+version = "1.0.0"
+description = "Tutorial notebook for building a corrective rag workflow with langgraph."
+authors = ["Sajal Sharma <sajal2692@gmail.com>"]
+readme = "README.md"
+packages = [{include = "corrective_rag_with_langgraph"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+langgraph = "^0.1.5"
+langchain = "^0.2.6"
+langchain-openai = "^0.1.14"
+chromadb = "^0.5.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
