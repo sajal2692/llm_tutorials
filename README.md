@@ -21,6 +21,7 @@ llm_tutorials/
 └── README.md
 ```
 
+---
 
 ## Setup Instructions
 
@@ -28,6 +29,7 @@ llm_tutorials/
 
 - Python 3.11+ (each tutorial may have its own Python version requirements)
 - Git
+- uv (replacing Poetry)
 
 ### 1. Clone the Repository
 
@@ -36,57 +38,58 @@ git clone https://github.com/sajal-2692/llm_tutorials.git
 cd llm_tutorials
 ```
 
-### 2. Install Poetry
-If you haven't installed Poetry yet, you can do so by running:
+### 2. Install uv
+
+If you haven't installed uv yet, you can do so using the official installer:
 
 ```bash
-curl -sSL https://install.python-poetry.org | python3 -
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Alternatively, install via pip:
+
+```bash
+pip install uv
 ```
 
 Verify the installation:
 ```bash
-poetry --version
+uv --version
 ```
 
-### 3. Configure Poetry
-Set Poetry to create virtual environments in the project directory:
+---
 
-```bash
-poetry config virtualenvs.in-project true
-```
+## Running a Tutorial
 
-## Running a tutorial
-
-Navigate to the experiment directory:
+1️⃣ Navigate to the tutorial directory:
 ```bash
 cd blog_posts/tutorial_name
 ```
 
-Install dependencies:
+2️⃣ Install dependencies:
 ```bash
-poetry install
+uv venv    # Create a virtual environment in the directory
+uv pip install -r requirements.txt  # OR: use uv sync if you maintain a lockfile
 ```
 
-Activate the virtual environment:
+> Note: If the tutorial has a `pyproject.toml` (most of them do), you can also run:
 ```bash
-poetry shell
+uv sync  # Install the project with its dependencies
 ```
 
-Example: If the tutorial is a jupyter notebook:
+3️⃣ Run the tutorial:
 
-Start Jupyter Notebook:
+For example, if the tutorial is in a jupyter notebook, you can run:
 ```bash
-jupyter notebook
+uv jupyter notebook
 ```
 
 Open the tutorial notebook in your browser and run the cells.
 
-When finished, close Jupyter Notebook (Ctrl+C in terminal) and deactivate the virtual environment:
-```bash
-exit
-```
+When finished, close Jupyter Notebook (`Ctrl+C` in terminal).
 
-Feel free to open an issue on Github if you run into issues, or if the instructions are unclear.
+---
+
+If you encounter any issues or unclear steps, feel free to open an issue on GitHub.
 
 Happy learning! 💪
-

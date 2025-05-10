@@ -1,20 +1,25 @@
-[tool.poetry]
+[project]
 name = "corrective-rag-with-langgraph-ipynb"
 version = "1.0.0"
 description = "Tutorial notebook for building a corrective rag workflow with langgraph."
-authors = ["Sajal Sharma <sajal2692@gmail.com>"]
+authors = [{ name = "Sajal Sharma", email = "sajal2692@gmail.com" }]
+requires-python = "~=3.11"
 readme = "README.md"
-packages = [{include = "corrective_rag_with_langgraph"}]
+dependencies = [
+    "langgraph>=0.1.5,<0.2",
+    "langchain>=0.2.6,<0.3",
+    "langchain-openai>=0.1.14,<0.2",
+    "langchain-chroma>=0.1.2",
+    "chromadb>=0.5.3,<0.6",
+    "jupyter>=1.0.0,<2",
+]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-langgraph = "^0.1.5"
-langchain = "^0.2.6"
-langchain-openai = "^0.1.14"
-chromadb = "^0.5.3"
-jupyter = "^1.0.0"
+[tool.hatch.build.targets.sdist]
+include = ["corrective_rag_with_langgraph"]
 
+[tool.hatch.build.targets.wheel]
+include = ["corrective_rag_with_langgraph"]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
