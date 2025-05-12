@@ -1,19 +1,26 @@
-[tool.poetry]
-name = "query-routing-with-langgraph"
+[project]
+name = "agentic-rag-query-router"
 version = "1.0.0"
 description = "Short tutorial on query routing using langgraph."
-authors = ["Sajal Sharma <sajal2692@gmail.com>"]
-license = "MIT"
+authors = [{ name = "Sajal Sharma", email = "sajal2692@gmail.com" }]
+requires-python = "~=3.11"
 readme = "README.md"
+license = "MIT"
+dependencies = [
+    "jupyter",
+    "langchain-community",
+    "langchain-openai",
+    "langgraph",
+    "tavily-python",
+    "wikipedia"
+]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-jupyter = "^1.0.0"
-langchain-community = "^0.2.6"
-langchain-openai = "^0.1.14"
-langgraph = "^0.1.5"
+[tool.hatch.build.targets.sdist]
+include = ["agentic_rag_query_router"]
 
+[tool.hatch.build.targets.wheel]
+include = ["agentic_rag_query_router"]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
