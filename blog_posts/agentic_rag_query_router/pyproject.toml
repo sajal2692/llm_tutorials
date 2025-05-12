@@ -1,0 +1,26 @@
+[project]
+name = "agentic-rag-query-router"
+version = "1.0.0"
+description = "Short tutorial on query routing using langgraph."
+authors = [{ name = "Sajal Sharma", email = "sajal2692@gmail.com" }]
+requires-python = "~=3.11"
+readme = "README.md"
+license = "MIT"
+dependencies = [
+    "jupyter",
+    "langchain-community",
+    "langchain-openai",
+    "langgraph",
+    "tavily-python",
+    "wikipedia"
+]
+
+[tool.hatch.build.targets.sdist]
+include = ["agentic_rag_query_router"]
+
+[tool.hatch.build.targets.wheel]
+include = ["agentic_rag_query_router"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
