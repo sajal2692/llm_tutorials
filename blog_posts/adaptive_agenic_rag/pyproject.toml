@@ -1,0 +1,28 @@
+[project]
+name = "adaptive-agentic-rag"
+version = "1.0.0"
+description = "Tutorial on adaptive agentic RAG implementation."
+authors = [{ name = "Sajal Sharma", email = "sajal2692@gmail.com" }]
+requires-python = "~=3.11"
+readme = "README.md"
+license = "MIT"
+dependencies = [
+    "jupyter",
+    "langchain-community",
+    "langchain-chroma",
+    "langchain-openai",
+    "langgraph",
+    "tavily-python",
+    "wikipedia",
+    "faiss-cpu>=1.11.0",
+]
+
+[tool.hatch.build.targets.sdist]
+include = ["adaptive_agentic_rag"]
+
+[tool.hatch.build.targets.wheel]
+include = ["adaptive_agentic_rag"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
